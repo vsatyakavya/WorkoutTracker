@@ -1,96 +1,31 @@
+
+
+
 const express = require("express");
 const logger = require("morgan");
-const mongoose = require("mongoose");
 
+const mongoose = require("mongoose");
+// const compression = require("compression");
 const PORT = process.env.PORT || 3000;
 
-const db = require("./models");
-
 const app = express();
-
 app.use(logger("dev"));
 
+// app.use(compression());
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
-
-db.User.create({ name: "Ernest Hemingway" })
-  .then(dbUser => {
-    console.log(dbUser);
-  })
-  .catch(({ message }) => {
-    console.log(message);
-  });
-
-app.get("/notes", (req, res) => {
-  db.Note.find({})
-    .then(dbNote => {
-      res.json(dbNote);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-
-app.get("/user", (req, res) => {
-  db.User.find({})
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-
-app.post("/submit", ({ body }, res) => {
-  db.Note.create(body)
-    .then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-
-app.get("/populateduser", (req, res) => {
-  db.User.find({})
-    .populate("notes")
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
-
-
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const compression = require("compression");
-
-// const app = express();
-// const PORT = process.env.PORT || 3000;
-
-// app.use(compression());
-// app.use(express.static("public"));
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
 // require("./routes/apiRoutes")(app);
 // require("./routes/htmlRoutes")(app);
-
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/imageperformance", {
-//   useNewUrlParser: true
+// app.get("/stats", function(req, res) {
+//   res.sendFile(path.join(__dirname, "../public/stats.html"));
 // });
 
-// app.listen(PORT, function() {
-//   console.log(`Now listening on port: ${PORT}`);
-// });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true
+});
+
+app.listen(PORT, function() {
+  console.log(`Now listening on port: ${PORT}`);
+});
