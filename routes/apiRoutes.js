@@ -24,29 +24,29 @@ app.post("/api/workouts", ({body}, res) => {
       });
   });
   
-//   app.put("/api/workouts/:id", function(req, res) {
-//       console.log(req.body);
-//     db.User.update({ _id: req.params.id },
-//         {
-//             exercises : [{
-//                 type :req.body.type,
-//                 name: req.body.name ,
-//                  duration : req.body.duration,
-//                  weight : req.body.weight,
-//                  reps : req.body.reps,
-//                  sets : req.body.sets
-//             }
+  app.put("/api/workouts/:id", function(req, res) {
+      console.log(req.body);
+    db.User.update({ _id: req.params.id },
+        {
+            exercises : [{
+                type :req.body.type,
+                name: req.body.name ,
+                 duration : req.body.duration,
+                 weight : req.body.weight,
+                 reps : req.body.reps,
+                 sets : req.body.sets
+            }
          
 
-//             ]
-//         }
+            ]
+        }
 
 
-//        )
-//          .then(function(dbImage) {
-//       res.json(dbImage);
-//     });
-//   });
+       )
+         .then(function(dbImage) {
+      res.json(dbImage);
+    });
+  });
 
 
 };
