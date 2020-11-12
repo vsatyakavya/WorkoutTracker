@@ -17,12 +17,13 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes.js")(app);
+ require("./routes/htmlRoutes.js")(app);
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-  useNewUrlParser: true
+mongoose.connect("mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false
 });
 
 app.listen(PORT, function() {

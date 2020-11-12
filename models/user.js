@@ -9,7 +9,7 @@ const userSchema = new Schema({
   exercises: [
     {
       type: {type: String, required: true},
-      msg: {type: String, required: true},
+      name: {type: String, required: true},
       duration :{type : Number , required :true},
       weight : {type: Number, required:true},
       reps :{type : Number , required :true},
