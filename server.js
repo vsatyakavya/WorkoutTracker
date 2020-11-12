@@ -27,7 +27,7 @@ mongoose.connect("mongodb://localhost/workout", {
   useCreateIndex: true,
   useFindAndModify: false
 });
-mongoose.connect();
+// mongoose.connect();
 
 app.listen(PORT, function() {
   console.log(`Now listening on port: ${PORT}`);
