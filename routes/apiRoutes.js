@@ -26,7 +26,7 @@ app.post("/api/workouts", ({body}, res) => {
   
   app.put("/api/workouts/:id", function(req, res) {
       console.log(req.body);
-    db.User.update({ _id: req.params.id },
+    db.User.updateOne({ _id: req.params.id },
         {
             exercises : req.body
             // [{
@@ -49,5 +49,15 @@ app.post("/api/workouts", ({body}, res) => {
     });
   });
 
+
+  app.get("/api/workouts/range" , (req,res)=>{
+    db.User.find({})
+    .then(dbUser =>{
+        res.json(dbUser)
+    })
+    .catch(err=>{
+        res.json(err);
+    })
+})
 
 };
