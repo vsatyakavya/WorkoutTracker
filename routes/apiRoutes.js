@@ -5,8 +5,9 @@ module.exports = function(app) {
 app.get("/api/workouts" , (req,res)=>{
     db.User.find({})
     .then(dbUser =>{
-        res.json(dbUser)
-        console.log(dbUser);
+        res.json(dbUser);
+
+        
     })
     .catch(err=>{
         res.json(err);
@@ -29,7 +30,9 @@ app.post("/api/workouts", ({body}, res) => {
       console.log(req.body);
     db.User.updateOne({ _id: req.params.id },
         {
+           $push:{
             exercises : req.body
+           } 
             // [{
             //     type :req.body.type,
             //     name: req.body.name ,
