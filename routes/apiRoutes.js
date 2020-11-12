@@ -6,6 +6,7 @@ app.get("/api/workouts" , (req,res)=>{
     db.User.find({})
     .then(dbUser =>{
         res.json(dbUser)
+        console.log(dbUser);
     })
     .catch(err=>{
         res.json(err);

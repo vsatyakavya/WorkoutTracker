@@ -23,8 +23,11 @@ require("./routes/apiRoutes.js")(app);
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
   useFindAndModify: false
 });
+mongoose.connect();
 
 app.listen(PORT, function() {
   console.log(`Now listening on port: ${PORT}`);
