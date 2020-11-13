@@ -3,8 +3,7 @@ async function initWorkout() {
     console.log("Last workout:", lastWorkout);
    
     if (lastWorkout) {
-      console.log("these are returned values888888888888888888888888888888888888888888")
-      console.log(lastWorkout);
+      
       document
         .querySelector("a[href='/exercise?']")
         .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
@@ -15,12 +14,7 @@ async function initWorkout() {
            return accumulator + current.duration 
         },0
         ),
-        // const array1 = [1, 2, 3, 4];
-        // const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        
-        // // 1 + 2 + 3 + 4
-        // console.log(array1.reduce(reducer));
-        // // expected output: 10
+      
         numExercises: lastWorkout.exercises.length,
         ...tallyExercises(lastWorkout.exercises)
       };
