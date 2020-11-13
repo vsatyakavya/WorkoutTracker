@@ -22,19 +22,16 @@
 
 
 
-<!-- # Sample web page
-![picture](Assets/quiz.png)
-![picture](Assets/quizGameresult.png) -->
+# Sample web pages
+![picture](Assets/fitness.png)
+![picture](Assets/graph.png)
 
 
-# Github Page 
- https://vsatyakavya.github.io/QuizGame.github.io/.
+# Github repository
+ https://github.com/vsatyakavya/WorkoutTracker
  
-
-
-
 # heroku link
-https://github.com/vsatyakavya/QuizGame.github.io
+https://boiling-stream-90218.herokuapp.com/
 
 # contact Information
 satyakavya24@gmail.com
