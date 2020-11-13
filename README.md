@@ -4,7 +4,7 @@
 * This is an application for tracking exercises. It can save both cardio and resistance type of workouts.
 
 # Technologies used:
-* HTML, CSS, JavaScript, express.js, node.js, 
+* HTML, CSS, JavaScript, express.js, node.js
 * Front-end : HTML, CSS, BOOTSTRAP
 * Back-end :Javascript, Express.js, Node.js, ES6, MongoDB, Mongoose(JS library),chart(JS library), Morgan(middleware)
 * Deployed in Heroku
@@ -23,12 +23,14 @@
 
 
 # Sample web pages
-![picture](Assets/fitness.png)
+![picture](Assets/fitness.png) <p>&nbsp;</p> 
 ![picture](Assets/graph.png)
 
 
 # Github repository
- https://github.com/vsatyakavya/WorkoutTracker
+ https://github.com/vsatyakavya/WorkoutTracker      
+
+ 
  
 # heroku link
 https://boiling-stream-90218.herokuapp.com/
